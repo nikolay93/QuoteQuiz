@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuoteQuizModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QuoteQuizEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Answers" EntityType="QuoteQuizModel.Answer" />
+    <EntitySet Name="Binaries" EntityType="QuoteQuizModel.Binary" />
+    <EntitySet Name="Multiples" EntityType="QuoteQuizModel.Multiple" />
+    <AssociationSet Name="MultipleAnswer" Association="QuoteQuizModel.MultipleAnswer">
+      <End Role="Multiple" EntitySet="Multiples" />
+      <End Role="Answer" EntitySet="Answers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AnswerMultiple" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Correct" Type="Boolean" Nullable="false" />
+    <Property Name="QuestionId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Multiple" Relationship="QuoteQuizModel.MultipleAnswer" FromRole="Answer" ToRole="Multiple" />
+  </EntityType>
+  <EntityType Name="Binary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Question" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Answer" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Multiple">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Question" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Answers" Relationship="QuoteQuizModel.MultipleAnswer" FromRole="Multiple" ToRole="Answer" />
+  </EntityType>
+  <Association Name="MultipleAnswer">
+    <End Type="QuoteQuizModel.Multiple" Role="Multiple" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QuoteQuizModel.Answer" Role="Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Multiple">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="QuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuoteQuizModelStoreContainer" CdmEntityContainer="QuoteQuizEntities">
+    <EntitySetMapping Name="Answers">
+      <EntityTypeMapping TypeName="QuoteQuizModel.Answer">
+        <MappingFragment StoreEntitySet="Answer">
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="Correct" ColumnName="Correct" />
+          <ScalarProperty Name="AnswerMultiple" ColumnName="AnswerMultiple" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Binaries">
+      <EntityTypeMapping TypeName="QuoteQuizModel.Binary">
+        <MappingFragment StoreEntitySet="Binary">
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Multiples">
+      <EntityTypeMapping TypeName="QuoteQuizModel.Multiple">
+        <MappingFragment StoreEntitySet="Multiple">
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

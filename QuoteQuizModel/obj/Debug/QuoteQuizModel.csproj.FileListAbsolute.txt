@@ -1,0 +1,10 @@
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\QuoteQuiz\QuoteQuizModel\bin\Debug\QuoteQuizModel.dll.config
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\QuoteQuiz\QuoteQuizModel\bin\Debug\QuoteQuizModel.dll
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\QuoteQuiz\QuoteQuizModel\bin\Debug\QuoteQuizModel.pdb
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\QuoteQuiz\QuoteQuizModel\bin\Debug\EntityFramework.dll
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\QuoteQuiz\QuoteQuizModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\QuoteQuiz\QuoteQuizModel\bin\Debug\EntityFramework.xml
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\QuoteQuiz\QuoteQuizModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\QuoteQuiz\QuoteQuizModel\obj\Debug\QuoteQuizModel.csprojResolveAssemblyReference.cache
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\QuoteQuiz\QuoteQuizModel\obj\Debug\QuoteQuizModel.dll
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\QuoteQuiz\QuoteQuizModel\obj\Debug\QuoteQuizModel.pdb

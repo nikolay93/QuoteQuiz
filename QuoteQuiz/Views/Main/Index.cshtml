@@ -1,0 +1,17 @@
+﻿@model QuoteQuizModel.Binary
+@{
+    ViewBag.Title = "Binary Questions";
+}
+<div class="text-center">
+    <h2>Binary Questions</h2>
+    <h3>Who Said It?</h3>
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(q => q.Id)
+        <div class="well well-sm" style="background-color:#ff1a75;color:white;border-radius:10px;">
+            @Html.DisplayFor(q => q.Question) <br /><br /><br />
+        </div>
+            <input type="submit" value="Yes" name="correct" class="btn btn-success" style="margin-right:100px" />
+            <input type="submit" value="No" name="correct" class="btn btn-danger" />
+    }
+</div>

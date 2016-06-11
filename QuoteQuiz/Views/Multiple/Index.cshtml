@@ -1,0 +1,21 @@
+﻿@model QuoteQuizModel.Multiple
+@{
+    ViewBag.Title = "Multiple Answer Questions";
+}
+
+<div class="text-center">
+    <h2>Multiple Answer Questions</h2>
+    <h3>Who Said It?</h3>
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(q => q.Id)
+        <div class="well well-sm" style="background-color:#ff1a75;color:white;border-radius:10px;">
+            @Html.DisplayFor(q => q.Question) <br />
+        </div>
+        
+         foreach (var answer in Model.Answers)
+            {
+            <button type="submit" class="text-center" name="correct" style="display:block;margin:auto;border-radius:7px;color:white;background-color:#595959" value="@answer.Id">-> @answer.AnswerMultiple</button><br />
+            }
+    }
+    </div>

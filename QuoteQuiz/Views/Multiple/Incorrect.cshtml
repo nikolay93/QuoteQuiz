@@ -1,0 +1,13 @@
+﻿@model QuoteQuizModel.Multiple
+@{
+    ViewBag.Title = "Incorrect";
+}
+<div class="well well-lg text-center">
+    <h2>Your answer is INCORRECT!</h2>
+    <h3>The right answer is <strong>@Model.Answers.FirstOrDefault(a => a.Correct).AnswerMultiple</strong></h3>
+    <h3>Question</h3>
+    <div class="well well-sm" style="background-color:#ff1a75;color:white;border-radius:10px;">
+        @Html.DisplayFor(q => q.Question)<br />
+      </div>
+        @Html.ActionLink("Back to multiple answer questions", "Index", "Multiple")
+    </div>

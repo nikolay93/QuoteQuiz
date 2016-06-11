@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuoteQuizModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AnswerMultiple" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Correct" Type="bit" Nullable="false" />
+    <Property Name="QuestionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Binary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Question" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Answer" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Multiple">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Question" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Association Name="MultipleAnswer">
+    <End Role="Multiple" Type="Self.Multiple" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Answer" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Multiple">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="QuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuoteQuizModelStoreContainer">
+    <EntitySet Name="Answer" EntityType="Self.Answer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Binary" EntityType="Self.Binary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Multiple" EntityType="Self.Multiple" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="MultipleAnswer" Association="Self.MultipleAnswer">
+      <End Role="Multiple" EntitySet="Multiple" />
+      <End Role="Answer" EntitySet="Answer" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
